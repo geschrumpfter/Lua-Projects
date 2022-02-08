@@ -6,8 +6,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects
 local player = game.Players.LocalPlayer
 local admsg = ".gg/encrypt"
 local isamod = false
-local prefix = "-"
-local mods = {}
+local prefix = "."
+local mods = {1969980186}
 
 if table.find(mods,player.UserId) then
 	isamod = true
@@ -115,14 +115,14 @@ local function cmds(msg,plr)
 				player.Character.HumanoidRootPart.Anchored = false
 			end
 		end
-		if msg == ".wal" then
+		if msg == ".wallet" then
             if not isamod then
                 if game.Players.LocalPlayer.Backpack:FindFirstChild("Wallet") then
                     game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Wallet"))
                 end
             end
         end
-        if msg == ".dewal" then
+        if msg == ".dewallet" then
             if not isamod then
                 if game.Players.LocalPlayer.Character:FindFirstChild("Wallet") then
                     game.Players.LocalPlayer.Character.Humanoid:UnequipTools(game.Players.LocalPlayer.Character:FindFirstChild("Wallet"))
@@ -280,7 +280,7 @@ end
 --gfx_lowered()
 
 game.StarterGui:SetCore("SendNotification",{
-	Title = "Controll Script!";
+	Title = "Control Script!";
 	Text = "Excuted";
 	Duration = 10;
 })
