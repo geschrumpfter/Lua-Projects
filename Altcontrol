@@ -15,7 +15,8 @@ if table.find(mods,player.UserId) then
 end
 
 local cashaura = false
-local cashauraplr = nil
+local cashauraplr = Maxiaviiva
+local vibetoggle = false
 local adtoggle = false
 local droptoggle = false
 local function cmds(msg,plr)
@@ -87,12 +88,30 @@ local function cmds(msg,plr)
 				game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			end
 		end
+		if msg == ".vibe" then
+		    if not isamod then
+			    vibetoggle = true
+			    repeat
+			        local args = {
+                    [1] = "AnimationPack",
+                    [2] = "Dance1"
+                                 }
+                    game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+                    wait(15)
+				until vibetoggle == false
+		    end
+	    end
+		if msg == ".unvibe" then
+		    if not isamod then
+		        adtoggle = false
+		    end
+		end   
 		if msg == ".ad" then
 			if not isamod then
 				adtoggle = true
 				repeat
 					game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(admsg, 'All')
-					wait(1)
+					wait(3)
 				until adtoggle == false
 			end
 		end
