@@ -1,7 +1,3 @@
--- made by Homolife discord.gg/encrypt
--- input the operator [roblox id] in side of the mods "local mods {}" put it inside, example:
--- local mods = {1341,13141,} like that ;)
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/antiafk.lua"))()
 local player = game.Players.LocalPlayer
 local admsg = ".gg/encrypt"
