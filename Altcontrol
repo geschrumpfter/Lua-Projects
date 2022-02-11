@@ -114,36 +114,36 @@ local function cmds(msg,plr)
 		if msg == ".setupadmin" then
 		    if not isamod then
 			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.5)
+                            wait(0.2)
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-870.96197509766, -38.391681671143, -589.58416748047)
-                            wait(0.5)
+                            wait(0.2)
                             player.Character.HumanoidRootPart.Anchored = true
 		    end
 		end
 		if msg == ".setupgrave" then
 		    if not isamod then
 			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.5)
+                            wait(0.2)
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(178.95938110352, 11.757529258728, 65.545906066895)
-                            wait(0.5)
+                            wait(0.2)
                             player.Character.HumanoidRootPart.Anchored = true
 		    end
 		end
 		if msg == ".setuppool" then
 		    if not isamod then
 			    player.Character.HumanoidRootPart.Anchored = false  
-			    wait(0.5)
+			    wait(0.2)
 			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-847.34973144531, 11.807541847229, -261.1962890625)
-		            wait(0.5)
+		            wait(0.2)
 			    player.Character.HumanoidRootPart.Anchored = true
 		    end
 		end
 		if msg == ".setuptrain" then
 		    if not isamod then
 			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.5)
+                            wait(0.2)
                             game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(582.04266357422, 34.507518768311, -130.03875732422)
-                            wait(0.5)
+                            wait(0.2)
                             player.Character.HumanoidRootPart.Anchored = true
 		    end
 		end
