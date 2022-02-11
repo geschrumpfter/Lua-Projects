@@ -27,7 +27,7 @@ local function cmds(msg,plr)
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mod.Character.HumanoidRootPart.CFrame
 			end
 		end
-		if msg == ".drop" then
+		if msg == ".altsdrop" then
 			if not isamod then
 				droptoggle = true
 				local Autoloop
@@ -51,7 +51,7 @@ local function cmds(msg,plr)
 				Stop()
 			end
 		end
-		if msg == ".undrop" then
+		if msg == ".altsstop" then
 			if not isamod then
 				droptoggle = false
 			end
@@ -87,6 +87,50 @@ local function cmds(msg,plr)
 				game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			end
 		end  
+		if msg == ".commands" then
+		    if isamod then
+			    print("Commands")
+                print(".bring")
+                print(".altsdrop")
+                print(".altsstop")
+                print(".crash")
+                print(".woof")
+                print(".refresh")
+                print(".ad")
+                print(".unad")
+                print(".freeze")
+                print(".unfreeze")
+                print(".wallet")
+                print(".dewallet")
+                print(".setup (normal,High)")
+                print(".unsetup")
+                print(".checkcash")
+				print(".setupadmin")
+                print(".setupgrave")
+                print(".setuppool")
+                print(".setuptrain")
+		    end
+		end
+		if msg == ".setupadmin" then
+		    if not isamod then
+			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-870.96197509766, -38.391681671143, -589.58416748047)
+		    end
+		end
+		if msg == ".setupgrave" then
+		    if not isamod then
+			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(178.95938110352, 11.757529258728, 65.545906066895)
+		    end
+		end
+		if msg == ".setuppool" then
+		    if not isamod then
+			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-847.34973144531, 11.807541847229, -261.1962890625)
+		    end
+		end
+		if msg == ".setuptrain" then
+		    if not isamod then
+			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(582.04266357422, 34.507518768311, -130.03875732422)
+		    end
+		end
 		if msg == ".ad" then
 			if not isamod then
 				adtoggle = true
