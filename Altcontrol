@@ -105,7 +105,7 @@ local function cmds(msg,plr)
                 print(".setup (normal,High)")
                 print(".unsetup")
                 print(".checkcash")
-				print(".setupadmin")
+		print(".setupadmin")
                 print(".setupgrave")
                 print(".setuppool")
                 print(".setuptrain")
@@ -123,7 +123,11 @@ local function cmds(msg,plr)
 		end
 		if msg == ".setuppool" then
 		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false  
+			    wait(0.5) then
 			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-847.34973144531, 11.807541847229, -261.1962890625)
+		            wait(0.5) then
+			    player.Character.HumanoidRootPart.Anchored = true
 		    end
 		end
 		if msg == ".setuptrain" then
