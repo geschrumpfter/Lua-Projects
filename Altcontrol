@@ -131,10 +131,6 @@ local function cmds(msg,plr)
 		    end
 		end
                 if not isamod then
-                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
-                elseif spt[1] == Prefix.."fps" and spt[2] then
-                setfpscap(spt[2])  --If dont work use tostring(spt[2])
-                if not isamod then
                 game:GetService("RunService"):Set3dRenderingEnabled(false)
                 setfpscap(FPS)
                 end
