@@ -3,7 +3,7 @@ getgenv().FPS = 10
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/antiafk.lua"))()
 local player = game.Players.LocalPlayer
 local admsg = "dsc.gg/purgedhc"
-local roastmsg = "Pick up faster kid"
+local roastmsg = "Pick up faster kid😹"
 local isamod = false
 local prefix = "."
 local mods = {1969980186,2464773628,1888129467}
@@ -19,7 +19,6 @@ end
 
 local cashaura = false
 local cashauraplr = nil
-local vibetoggle = false
 local droptoggle = false
 local function cmds(msg,plr)
 	if isamod == false or table.find(mods,plr) then
