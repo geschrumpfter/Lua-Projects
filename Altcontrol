@@ -5,7 +5,7 @@ local player = game.Players.LocalPlayer
 local admsg = "dsc.gg/purgedhc"
 local isamod = false
 local prefix = "."
-local mods = {1969980186}
+local mods = {1969980186,2464773628,1888129467}
 
 if table.find(mods,player.UserId) then
 	isamod = true
