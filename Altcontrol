@@ -1,3 +1,5 @@
+getgenv().FPS = 10
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/antiafk.lua"))()
 local player = game.Players.LocalPlayer
 local admsg = "dsc.gg/purgedhc"
@@ -15,7 +17,7 @@ if table.find(mods,player.UserId) then
 end
 
 local cashaura = false
-local cashauraplr = Maxiaviiva
+local cashauraplr = nil
 local vibetoggle = false
 local droptoggle = false
 local function cmds(msg,plr)
@@ -27,7 +29,7 @@ local function cmds(msg,plr)
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mod.Character.HumanoidRootPart.CFrame
 			end
 		end
-		if msg == ".altsdrop" then
+		if msg == ".drop" then
 			if not isamod then
 				droptoggle = true
 				local Autoloop
@@ -51,7 +53,7 @@ local function cmds(msg,plr)
 				Stop()
 			end
 		end
-		if msg == ".altsstop" then
+		if msg == ".stop" then
 			if not isamod then
 				droptoggle = false
 			end
@@ -61,25 +63,6 @@ local function cmds(msg,plr)
 				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("alright, leave the game!", 'All')
 				wait(5)
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher"))()
-			end
-		end
-		if msg == ".woof" then
-			if not isamod then
-				local oldplc = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
-				wait()
-				function god()
-					attack = player.Character:FindFirstChild("BodyEffects").Attacking
-					if attack then
-						attack:Destroy()
-					end
-				end
-				player.CharacterAdded:Connect(function()
-					wait(1)
-					god()
-					wait()
-					player.Character.HumanoidRootPart.CFrame = oldplc
-				end)
-				player.Character.Humanoid.Health = 0
 			end
 		end
 		if msg == ".refresh" then
@@ -147,8 +130,16 @@ local function cmds(msg,plr)
                             player.Character.HumanoidRootPart.Anchored = true
 		    end
 		end
-		if msg == ".ad" then
-			if not isamod then
+                if not isamod then
+                game:GetService("ReplicatedStorage").DefaultChatSystemChatEvents.SayMessageRequest:FireServer(unpack(args))
+                elseif spt[1] == Prefix.."fps" and spt[2] then
+                setfpscap(spt[2])  --If dont work use tostring(spt[2])
+                if not isamod then
+                game:GetService("RunService"):Set3dRenderingEnabled(false)
+                setfpscap(FPS)
+                end
+                if msg == ".ad" then
+		     if not isamod then
 				adtoggle = true
 				repeat
 					game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(admsg, 'All')
@@ -336,7 +327,7 @@ end
 --gfx_lowered()
 
 game.StarterGui:SetCore("SendNotification",{
-	Title = "Control Script!";
+	Title = "Script loaded!";
 	Text = "Excuted";
 	Duration = 10;
 })
