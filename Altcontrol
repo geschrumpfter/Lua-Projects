@@ -4,6 +4,8 @@ loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects
 local player = game.Players.LocalPlayer
 local admsg = "dsc.gg/purgedhc"
 local roastmsg = "Pick up faster kid!!!"
+local sayhey = "Hey!"
+local saybye = "Bye, Thanks for Buying <3"
 local isamod = false
 local prefix = "."
 local mods = {1969980186,2464773628,1888129467}
@@ -130,6 +132,60 @@ local function cmds(msg,plr)
                             player.Character.HumanoidRootPart.Anchored = true
 		    end
 		end
+                if msg == ".setupclub" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-262.5162658691406, -6.200815677642822, -373.2193298339844)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupbank1" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-373.4030456542969, 21.34101104736328, -295.640380859375)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupbank2" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-479.66986083984375, 39.10086441040039, -283.3959655761719)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupschool1" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-598.4234008789062, 21.257524490356445, 213.9606475830078)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupschool2" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-579.5401611328125, 68.63251495361328, 325.925048828125)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupbasketball" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-932.9122924804688, 22.067346572875977, -481.9825744628906)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
                 if not isamod then
                 game:GetService("RunService"):Set3dRenderingEnabled(false)
                 setfpscap(FPS)
@@ -160,6 +216,16 @@ local function cmds(msg,plr)
                 if msg == ".unroast" then
                         if not isamod then
                                 roasttoggle = false
+                        end
+                end
+                if msg == ".sayhey" then
+                        if not isamod then
+                                      game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(sayhey, 'All')
+                        end
+                end
+                if msg == ".saybye" then
+                        if not isamod then
+                                      game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(saybye, 'All')  
                         end
                 end
 		if msg == ".freeze" then
