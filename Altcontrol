@@ -3,6 +3,7 @@ getgenv().FPS = 10
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/antiafk.lua"))()
 local player = game.Players.LocalPlayer
 local admsg = "dsc.gg/purgedhc"
+local roastmsg = "Pick up faster kid"
 local isamod = false
 local prefix = "."
 local mods = {1969980186,2464773628,1888129467}
@@ -148,6 +149,20 @@ local function cmds(msg,plr)
 				adtoggle = false
 			end
 		end
+                if msg == ".roast" then
+                        if not isamod then
+                                   roasttoggle = true
+				   repeat
+					game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(roastmsg, 'All')
+					wait(3)
+				   until roasttoggle == false
+                        end
+                end
+                if msg == ".unroast" then
+                        if not isamod then
+                                roasttoggle = false
+                        end
+                end
 		if msg == ".freeze" then
 			if not isamod then
 				player.Character.HumanoidRootPart.Anchored = true
