@@ -33,6 +33,13 @@ local function cmds(msg,plr)
 		end
 		if msg == ".drop" then
 			if not isamod then
+                                local args = {
+                                [1] = "Block",
+                                [2] = true
+                                }
+
+                                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+
 				droptoggle = true
 				local Autoloop
 				local autoloopfun = function()
@@ -57,6 +64,13 @@ local function cmds(msg,plr)
 		end
 		if msg == ".stop" then
 			if not isamod then
+                                local args = {
+                                [1] = "Block",
+                                [2] = false
+                                }
+
+                                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+
 				droptoggle = false
 			end
 		end
