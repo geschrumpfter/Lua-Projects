@@ -242,6 +242,16 @@ local function cmds(msg,plr)
                                       game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(saybye, 'All')  
                         end
                 end
+                if msg == ".vibe" then
+                        if not isamod then
+                                local args = {
+                                [1] = "AnimationPack",
+                                [2] = "Dance1"
+                                }
+
+                                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+                        end
+                end
 		if msg == ".freeze" then
 			if not isamod then
 				player.Character.HumanoidRootPart.Anchored = true
