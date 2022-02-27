@@ -204,6 +204,25 @@ local function cmds(msg,plr)
                 game:GetService("RunService"):Set3dRenderingEnabled(false)
                 setfpscap(FPS)
                 end
+                if not isamod then
+                        for _,v in pairs(workspace:GetDescendants()) do
+                        if v.ClassName == "Part"
+                        or v.ClassName == "SpawnLocation"
+                        or v.ClassName == "WedgePart"
+                        or v.ClassName == "Terrain"
+                        or v.ClassName == "MeshPart" then
+                        v.BrickColor = BrickColor.new(155, 155, 155)
+                        v.Material = "Plastic"
+                        end
+                        end
+
+                        for _,v in pairs(workspace:GetDescendants()) do
+                        if v.ClassName == "Decal"
+                        or v.ClassName == "Texture" then
+                        v:Destroy()
+                        end
+                        end
+                end
                 if msg == ".ad" then
 		     if not isamod then
 				adtoggle = true
@@ -244,12 +263,7 @@ local function cmds(msg,plr)
                 end
                 if msg == ".vibe" then
                         if not isamod then
-                                local args = {
-                                [1] = "AnimationPack",
-                                [2] = "Dance1"
-                                }
-
-                                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+                                game:GetService("ReplicatedStorage").MainEvent:FireServer("AnimationPack","Dance1")
                         end
                 end
 		if msg == ".freeze" then
