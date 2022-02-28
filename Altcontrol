@@ -1,5 +1,8 @@
 getgenv().FPS = 2
 
+game:GetService("RunService"):Set3dRenderingEnabled(false)
+setfpscap(FPS)
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/antiafk.lua"))()
 local player = game.Players.LocalPlayer
 local admsg = "dsc.gg/purgedhc"
@@ -200,29 +203,6 @@ local function cmds(msg,plr)
                             player.Character.HumanoidRootPart.Anchored = true
 		    end
 		end
-                if not isamod then
-                game:GetService("RunService"):Set3dRenderingEnabled(false)
-                setfpscap(FPS)
-                end
-                if not isamod then
-                        for _,v in pairs(workspace:GetDescendants()) do
-                        if v.ClassName == "Part"
-                        or v.ClassName == "SpawnLocation"
-                        or v.ClassName == "WedgePart"
-                        or v.ClassName == "Terrain"
-                        or v.ClassName == "MeshPart" then
-                        v.BrickColor = BrickColor.new(155, 155, 155)
-                        v.Material = "Plastic"
-                        end
-                        end
-
-                        for _,v in pairs(workspace:GetDescendants()) do
-                        if v.ClassName == "Decal"
-                        or v.ClassName == "Texture" then
-                        v:Destroy()
-                        end
-                        end
-                end
                 if msg == ".ad" then
 		     if not isamod then
 				adtoggle = true
