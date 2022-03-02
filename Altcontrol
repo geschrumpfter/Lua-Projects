@@ -1,4 +1,5 @@
 getgenv().FPS = 2
+getgenv().mods = {}
 
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 setfpscap(FPS)
@@ -11,7 +12,7 @@ local sayhey = "Hey!"
 local saybye = "Bye, Thanks for Buying <3"
 local isamod = false
 local prefix = "."
-local mods = {1969980186,2464773628,1888129467}
+local mods = {}
 
 if table.find(mods,player.UserId) then
 	isamod = true
