@@ -1,6 +1,3 @@
-getgenv().FPS = 2
-getgenv().mods = {}
-
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 setfpscap(FPS)
 
