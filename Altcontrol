@@ -1,3 +1,6 @@
+game:GetService("RunService"):Set3dRenderingEnabled(false)
+setfpscap(FPS)
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/antiafk.lua"))()
 local player = game.Players.LocalPlayer
 local admsg = "dsc.gg/purgedhc"
@@ -29,6 +32,13 @@ local function cmds(msg,plr)
 		end
 		if msg == ".drop" then
 			if not isamod then
+                                local args = {
+                                [1] = "Block",
+                                [2] = true
+                                }
+
+                                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+
 				droptoggle = true
 				local Autoloop
 				local autoloopfun = function()
@@ -51,16 +61,30 @@ local function cmds(msg,plr)
 				Stop()
 			end
 		end
-		if msg == ".undrop" then
+		if msg == ".stop" then
 			if not isamod then
+                                local args = {
+                                [1] = "Block",
+                                [2] = false
+                                }
+
+                                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
+
 				droptoggle = false
 			end
 		end
-		if msg == ".crash" then
+		if msg == ".crash swag" then
 			if not isamod then
 				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("alright, leave the game!", 'All')
 				wait(5)
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/dahoodcrasher.lua"))()
+			end
+		end
+		if msg == ".crash fast" then
+			if not isamod then
+				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("alright, leave the game!", 'All')
+				wait(5)
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/dhcquickcrash.lua", true))()
 			end
 		end
 		if msg == ".woof" then
@@ -87,6 +111,96 @@ local function cmds(msg,plr)
 				game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			end
 		end
+		if msg == ".setupadmin" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-870.96197509766, -38.391681671143, -589.58416748047)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+		if msg == ".setupgrave" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(178.95938110352, 11.757529258728, 65.545906066895)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+		if msg == ".setuppool" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false  
+			    wait(0.2)
+			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-847.34973144531, 11.807541847229, -261.1962890625)
+		            wait(0.2)
+			    player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+		if msg == ".setuptrain" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(582.04266357422, 34.507518768311, -130.03875732422)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupclub" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-262.5162658691406, -6.200815677642822, -373.2193298339844)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupbank1" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-373.4030456542969, 21.34101104736328, -295.640380859375)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupbank2" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-479.66986083984375, 39.10086441040039, -283.3959655761719)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupschool1" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-598.4234008789062, 21.257524490356445, 213.9606475830078)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupschool2" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-579.5401611328125, 68.63251495361328, 325.925048828125)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
+                if msg == ".setupbasketball" then
+		    if not isamod then
+			    player.Character.HumanoidRootPart.Anchored = false
+                            wait(0.2)
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-932.9122924804688, 22.067346572875977, -481.9825744628906)
+                            wait(0.2)
+                            player.Character.HumanoidRootPart.Anchored = true
+		    end
+		end
 		if msg == ".ad" then
 			if not isamod then
 				adtoggle = true
@@ -111,14 +225,14 @@ local function cmds(msg,plr)
 				player.Character.HumanoidRootPart.Anchored = false
 			end
 		end
-		if msg == ".wal" then
+		if msg == ".money show" then
             if not isamod then
                 if game.Players.LocalPlayer.Backpack:FindFirstChild("Wallet") then
                     game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Wallet"))
                 end
             end
         end
-        if msg == ".dewal" then
+        if msg == ".money hide" then
             if not isamod then
                 if game.Players.LocalPlayer.Character:FindFirstChild("Wallet") then
                     game.Players.LocalPlayer.Character.Humanoid:UnequipTools(game.Players.LocalPlayer.Character:FindFirstChild("Wallet"))
