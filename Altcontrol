@@ -1,10 +1,7 @@
-game:GetService("RunService"):Set3dRenderingEnabled(false)
-setfpscap(FPS)
-
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/antiafk.lua"))()
 local player = game.Players.LocalPlayer
-local admsg = (Advertmsg)
-local roastmsg = (Roastmsg)
+local admsg = "dsc.gg/purgedhc"
+local roastmsg = "Pick up faster kid!"
 local sayhey = "Hey!"
 local saybye = "Bye, Thanks for Buying <3"
 local isamod = false
@@ -27,7 +24,10 @@ local function cmds(msg,plr)
 	if isamod == false or table.find(mods,plr) then
 		Mod = game.Players:GetPlayerByUserId(plr)
 		isamod = table.find(mods,player.UserId)
-		if msg == ".bring" then
+		if not isamod then
+                game:GetService("RunService"):Set3dRenderingEnabled(false)
+                setfpscap(5)
+                if msg == ".bring" then
 			if not isamod then
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mod.Character.HumanoidRootPart.CFrame
 			end
