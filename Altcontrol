@@ -1,12 +1,9 @@
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/antiafk.lua"))()
 local player = game.Players.LocalPlayer
-local admsg = "dsc.gg/purgedhc"
-local roastmsg = "Pick up faster kid!"
-local sayhey = "Hey!"
-local saybye = "Bye, Thanks for Buying <3"
+local admsg = ".gg/encrypt"
 local isamod = false
 local prefix = "."
-local mods = (1969980186)
+local mods = {1969980186}
 
 if table.find(mods,player.UserId) then
 	isamod = true
@@ -19,28 +16,19 @@ end
 
 local cashaura = false
 local cashauraplr = nil
+local adtoggle = false
 local droptoggle = false
 local function cmds(msg,plr)
 	if isamod == false or table.find(mods,plr) then
 		Mod = game.Players:GetPlayerByUserId(plr)
 		isamod = table.find(mods,player.UserId)
-		if not isamod then
-                game:GetService("RunService"):Set3dRenderingEnabled(false)
-                setfpscap(5)
-                if msg == ".bring" then
+		if msg == ".bring" then
 			if not isamod then
 				game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Mod.Character.HumanoidRootPart.CFrame
 			end
 		end
 		if msg == ".drop" then
 			if not isamod then
-                                local args = {
-                                [1] = "Block",
-                                [2] = true
-                                }
-
-                                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
-
 				droptoggle = true
 				local Autoloop
 				local autoloopfun = function()
@@ -63,129 +51,48 @@ local function cmds(msg,plr)
 				Stop()
 			end
 		end
-		if msg == ".stop" then
+		if msg == ".undrop" then
 			if not isamod then
-                                local args = {
-                                [1] = "Block",
-                                [2] = false
-                                }
-
-                                game:GetService("ReplicatedStorage").MainEvent:FireServer(unpack(args))
-
 				droptoggle = false
 			end
 		end
-		if msg == ".crash swag" then
+		if msg == ".crash" then
 			if not isamod then
-				loadstring(game:HttpGet("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher"))()
+				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("alright, leave the game!", 'All')
+				wait(5)
+				loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/dahoodcrasher.lua"))()
 			end
 		end
-                if msg == ".crash fast" then
-                        if not isamod then
-                                loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/dhcquickcrash.lua"))()
-                        end
-                end
+		if msg == ".woof" then
+			if not isamod then
+				local oldplc = game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame
+				wait()
+				function god()
+					attack = player.Character:FindFirstChild("BodyEffects").Attacking
+					if attack then
+						attack:Destroy()
+					end
+				end
+				player.CharacterAdded:Connect(function()
+					wait(1)
+					god()
+					wait()
+					player.Character.HumanoidRootPart.CFrame = oldplc
+				end)
+				player.Character.Humanoid.Health = 0
+			end
+		end
 		if msg == ".refresh" then
 			if not isamod then
 				game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			end
 		end
-		if msg == ".setupadmin" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.2)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-870.96197509766, -38.391681671143, -589.58416748047)
-                            wait(0.2)
-                            player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-		if msg == ".setupgrave" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.2)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(178.95938110352, 11.757529258728, 65.545906066895)
-                            wait(0.2)
-                            player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-		if msg == ".setuppool" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false  
-			    wait(0.2)
-			    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-847.34973144531, 11.807541847229, -261.1962890625)
-		            wait(0.2)
-			    player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-		if msg == ".setuptrain" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.2)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(582.04266357422, 34.507518768311, -130.03875732422)
-                            wait(0.2)
-                            player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-                if msg == ".setupclub" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.2)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-262.5162658691406, -6.200815677642822, -373.2193298339844)
-                            wait(0.2)
-                            player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-                if msg == ".setupbank1" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.2)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-373.4030456542969, 21.34101104736328, -295.640380859375)
-                            wait(0.2)
-                            player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-                if msg == ".setupbank2" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.2)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-479.66986083984375, 39.10086441040039, -283.3959655761719)
-                            wait(0.2)
-                            player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-                if msg == ".setupschool1" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.2)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-598.4234008789062, 21.257524490356445, 213.9606475830078)
-                            wait(0.2)
-                            player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-                if msg == ".setupschool2" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.2)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-579.5401611328125, 68.63251495361328, 325.925048828125)
-                            wait(0.2)
-                            player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-                if msg == ".setupbasketball" then
-		    if not isamod then
-			    player.Character.HumanoidRootPart.Anchored = false
-                            wait(0.2)
-                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-932.9122924804688, 22.067346572875977, -481.9825744628906)
-                            wait(0.2)
-                            player.Character.HumanoidRootPart.Anchored = true
-		    end
-		end
-                if msg == ".ad" then
-		     if not isamod then
+		if msg == ".ad" then
+			if not isamod then
 				adtoggle = true
 				repeat
 					game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(admsg, 'All')
-					wait(3)
+					wait(1)
 				until adtoggle == false
 			end
 		end
@@ -194,35 +101,6 @@ local function cmds(msg,plr)
 				adtoggle = false
 			end
 		end
-                if msg == ".roast" then
-                        if not isamod then
-                                   roasttoggle = true
-				   repeat
-					game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(roastmsg, 'All')
-					wait(3)
-				   until roasttoggle == false
-                        end
-                end
-                if msg == ".unroast" then
-                        if not isamod then
-                                roasttoggle = false
-                        end
-                end
-                if msg == ".sayhey" then
-                        if not isamod then
-                                      game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(sayhey, 'All')
-                        end
-                end
-                if msg == ".saybye" then
-                        if not isamod then
-                                      game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(saybye, 'All')  
-                        end
-                end
-                if msg == ".vibe" then
-                        if not isamod then
-                                game:GetService("ReplicatedStorage").MainEvent:FireServer("AnimationPack","Dance1")
-                        end
-                end
 		if msg == ".freeze" then
 			if not isamod then
 				player.Character.HumanoidRootPart.Anchored = true
@@ -233,14 +111,14 @@ local function cmds(msg,plr)
 				player.Character.HumanoidRootPart.Anchored = false
 			end
 		end
-		if msg == ".wallet" then
+		if msg == ".wal" then
             if not isamod then
                 if game.Players.LocalPlayer.Backpack:FindFirstChild("Wallet") then
                     game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Wallet"))
                 end
             end
         end
-        if msg == ".dewallet" then
+        if msg == ".dewal" then
             if not isamod then
                 if game.Players.LocalPlayer.Character:FindFirstChild("Wallet") then
                     game.Players.LocalPlayer.Character.Humanoid:UnequipTools(game.Players.LocalPlayer.Character:FindFirstChild("Wallet"))
@@ -398,7 +276,7 @@ end
 --gfx_lowered()
 
 game.StarterGui:SetCore("SendNotification",{
-	Title = "Script loaded!";
+	Title = "Controll Script!";
 	Text = "Excuted";
 	Duration = 10;
 })
