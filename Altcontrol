@@ -9,7 +9,7 @@ local sayhey = "Hey!"
 local saybye = "Bye, Thanks for Buying <3"
 local isamod = false
 local prefix = "."
-local mods = (Host)
+local mods = (1969980186)
 
 if table.find(mods,player.UserId) then
 	isamod = true
