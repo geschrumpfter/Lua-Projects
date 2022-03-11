@@ -2,8 +2,8 @@ setfpscap(FPS)
 
 loadstring(game:HttpGet("https://raw.githubusercontent.com/LPrandom/lua-projects/master/antiafk.lua"))()
 local player = game.Players.LocalPlayer
-local admsg = "dsc.gg/purgedhc"
-local roastmsg = "Pick up faster kid!!!"
+local admsg = (Advertmsg)
+local roastmsg = (Roastmsg)
 local sayhey = "Hey!"
 local saybye = "Bye, Thanks for Buying <3"
 local isamod = false
