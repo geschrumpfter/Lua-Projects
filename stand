@@ -1,0 +1,35 @@
+-----------------------------
+-- By Lerkermer + SwagminComp
+-- Script Name: Destiny Stand
+-----------------------------------------------------------
+getgenv().Settings =  {
+    ["Owner"] = "username" -- Replace StandUser with somebody's username!
+}
+---------------------------------------------------------------------------------
+getgenv().Commands =  {
+    ["Summon"] = "Summon!", -- Makes the stand follow you.
+    ["Multi"] = "Multi!", -- Makes the stand disappear.
+    ["Grow"] = "Grow!", -- Makes the stand become a titan.
+    ["Aura"] = "Aura!", -- Enables kill aura.
+    ["Vanish"] = "Vanish!", -- Makes the stand disappear.
+    ["Mimic"] = "Mimic!", -- Makes the stand mimic what you do (attack, block).
+    ["Barrage"] = "Barrage!", -- Makes the stand spam punch everybody around you.
+    ["Stab"] = "Stab!", -- Makes the stand stab everybody around you.
+    ["Banish"] = "Banish!", -- Makes the stand fling everybody around you.
+}
+--[[
+Miscellaneous commands:
+/e leave - Makes the stand leave.
+/e shrink - Makes the stand shrink.
+/e reset - Resets the stand.
+/e rejoin - Makes the stand rejoin.
+/e limit - The number of how far a player can be to be attacked.
+/e spread - The number of how much the stand should spread while attacking.
+/e fling [username] - Flings a specific player.
+/e attack [username] - Autokills a specific player.
+/e light - Switches the attack mode to spam punching.
+/e heavy - Switches the attack mode to hold punching.
+]]
+--------------------------------------------------------------------------------------------
+loadstring(game:HttpGet("https://raw.githubusercontent.com/geschrumpfter/Lua-Projects/main/destiny%20stand%20(not%20mine)"))()
+--------------------------------------------------------------------------------------------
