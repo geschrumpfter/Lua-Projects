@@ -1,3 +1,4 @@
+setfpscap(6)
 -----------------------------
 -- By Lerkermer + SwagminComp
 -- Script Name: Destiny Stand
@@ -31,5 +32,5 @@ Miscellaneous commands:
 /e heavy - Switches the attack mode to hold punching.
 ]]
 --------------------------------------------------------------------------------------------
-loadstring(game:HttpGet("https://raw.githubusercontent.com/geschrumpfter/Lua-Projects/main/destiny%20stand%20(not%20mine)"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/geschrumpfter/Lua-Projects/main/nigagagaga"))()
 --------------------------------------------------------------------------------------------
