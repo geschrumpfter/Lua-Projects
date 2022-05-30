@@ -1,7 +1,37 @@
---[[ For any template shares, please make sure to include a list of the abilities inside the template as follows :
-    1. COMMAND NAME HERE 
-]]--
---/ Beginner links are provided in-case your unsure what you're doing. / Please refer to template sharing & ability sharing in https://discord.com/invite/g4kFtuS5G6 for already made templates and abilities.
+                                                                                                                                                       --[[
+test
+left!
+right!
+/e sh
+/e sf
+/e g
+/e aura
+HStab!
+/e k
+Barrage! -- fast barrage
+Rejoin!
+Leave!
+Bring!
+Cash!
+Kill!
+ndSave!
+HMimic!
+/e f
+jail!
+alien!
+train!
+Ora!
+LMimic!
+Refresh!
+Stab!
+drop!
+Fling!
+ZA WARUDO!
+/e flashbang
+Save!
+Aura!
+                                                                                                          --]]
+
 getgenv().Settings = {
     ['Made By JoJo#2494'] = {
         CHECK = {OWNER = "Altaccount92715", STAND = "AlvinColon2"}, --/ Do not use UserId (Always execute script on stand account).
@@ -136,7 +166,6 @@ end)
 
     CreateAction("poof", function() 
     STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(-10,-10,-10)
-    Hit(true)
 end)
 
     CreateAction("Aura", function() 
@@ -158,32 +187,16 @@ Create("right!", function()
 	Stand.Action = "SR"
 end)
 
-Create("GOLDEN EXPIERNCE", function()
+Create("/e sh", function()
 Chat("I'm here, Master") --change thea text to whatever u want
 Stand.Action = "Summoned"
 end)
 
-Create("yare yare daze..", function()
-end)
-
-Create("ZA WARUDO!", function()
-end)
-
-Create("GROUND!", function()
-Chat("bye") --change thea text to whatever u want
+Create("/e sf", function()
 Stand.Action = "poof"
 end)
 
-Create("/e sh", function()
-	Chat("I'm leaving, Master")
-	wait(1.3)
-    Stand.Action = ""
-    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(0,1.55,2.5)
-    wait(0.1)
-    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(0,100000,0)
-end)
-
-Create("Grenade!", function()
+Create("/e g", function()
 	Buy.Grenade()
 end)
 
@@ -205,18 +218,11 @@ local b = (OWNER.Character.UpperTorso.Position - Target.Character.UpperTorso.Pos
 end)  
 
 
-Create("attack heavy!", function()  -- u can change the cmd name
+Create("HStab!", function()  -- u can change the cmd name
     Stand.Action = "aura12"
 end)
 
-
-
-CreateTargetAbility("Goto!", function() 
-    local Target = Stand.Target
-    STAND.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
-end)
-
-Create("Knife!", function()
+Create("/e k", function()
 Buy.Knife()
 end)
 
@@ -309,12 +315,8 @@ CreateTargetAbility("Bring!", function()
 DropMoney(10000)--change this to how much cash u wanna drop
 end)
 
-Create("drop cash", function()
+Create("Cash!", function()
 Stand.Action = "cash drop"
-end)
-
-Create("ORA!", function()--this is they key to what the stand will say
-Chat("ORA! ORA! ORA! ORA! ORA!")--this is what u want it to say
 end)
 
 -- Auto kill made by me :D
@@ -365,7 +367,7 @@ CreateAction("Save", function()
         end)
 
 
-Create("Save no drop!", function ()
+Create("ndSave!", function ()
     Stand.Action = "Save"
 end)
 
@@ -391,7 +393,7 @@ CreateAction("Mimic", function()
     end
 end)
 
-Create("Mimic heavy!", function() 
+Create("HMimic!", function() 
     Stand.Action = "Mimic"
 end)
 
@@ -399,36 +401,7 @@ Create("/e f", function()
 game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["Combat"])
 end)
 
-    CreateTargetAbility("Void!", function()
-	Chat("UR GOING TO A SECRET PLACE") 
-        local Target = Stand.Target
-        if Target then
-           Hit(true)
-           wait(0.7)
-           Stand.Action = "" 
-           repeat wait()
-            if Target.Character.BodyEffects["K.O"].Value == false then
-                Hit(true)
-                STAND.Character.HumanoidRootPart.CFrame = Target.Character.UpperTorso.CFrame
-            elseif Target.Character.BodyEffects["K.O"].Value == true then 
-                wait(1.5)
-                STAND.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X , Target.Character.UpperTorso.Position.Y +0.5, Target.Character.UpperTorso.Position.Z )
-                wait(.5)
-                if STAND.Character.BodyEffects["Grabbed"].Value == nil then
-                    wait(1)
-                    game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
-                end
-            end
-            until Stand.Action == "Summoned" or Target == nil or not Target.Character.BodyEffects:FindFirstChild("K.O") or not Target.Character.BodyEffects:FindFirstChild("Defense") or STAND.Character.BodyEffects["Grabbed"].Value ~= nil 
-            STAND.Character.HumanoidRootPart.CFrame = CFrame.new(0,-100,0)
-            wait(1)
-            game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
-            wait(0.5)
-            Stand.Action = "Summoned"
-            end
-    end)
-    
-        CreateTargetAbility("jail!", function()
+CreateTargetAbility("jail!", function()
 	Chat("YOU CRIMINAL") 
         local Target = Stand.Target
         if Target then
@@ -456,7 +429,7 @@ end)
             Stand.Action = "Summoned"
             end
     end)
-               CreateTargetAbility("alien!", function()
+CreateTargetAbility("alien!", function()
 	Chat("farewell") 
         local Target = Stand.Target
         if Target then
@@ -525,7 +498,7 @@ STAND.Character:FindFirstChild('Combat'):Deactivate()
     end
 end)
 
-Create("light!", function() 
+Create("LMimic!", function() 
     Stand.Action = "Mimic1"
 end)
 
@@ -548,13 +521,8 @@ local b = (OWNER.Character.UpperTorso.Position - Target.Character.UpperTorso.Pos
 end)  
 
 
-Create("attack light!", function()  -- u can change the cmd name
+Create("Stab!", function()  -- u can change the cmd name
     Stand.Action = "a1ur2a12"
-end)
-
-Create("cmds!", function()
-	Chat("void! refresh! attack light! attack heavy! aura! mimic light! mimic heavy! jail! train! alien!")
-	Stand.Action = "Summoned"
 end)
 
 Create("drop!", function()
@@ -562,7 +530,7 @@ Create("drop!", function()
 Stand.Action = "Summoned"
 end)
 
-                   CreateTargetAbility("train!", function() -- this brings the target to the train and chats good game
+CreateTargetAbility("train!", function() -- this brings the target to the train and chats good game
     Chat("good game") 
         local Target = Stand.Target
         if Target then
@@ -590,11 +558,6 @@ end)
             Stand.Action = "Summoned"
             end
     end)
-    
-    Create("cmds 2!", function()
-	Chat("light! mimic heavy! jail! train! alien!")
-	Stand.Action = "Summoned"
-end)
 
 CreateTargetAbility("Fling!", function()
     local Target = Stand.Target
@@ -630,7 +593,7 @@ Create("ZA WARUDO!", function()
     Stand.Action = "Fro2nt Stab12"
 end)
 
-Create("flash!", function()
+Create("/e flashbang", function()
 Buy.Flashbang()
 end)
 
@@ -677,8 +640,4 @@ end)
 
 Create("Aura!", function()
 Stand.Action = "Stab23"
-end)
-
-Create("cmds 3!", function()
-	Chat("save no drop! save drop! flash! za warudo!")
 end)
