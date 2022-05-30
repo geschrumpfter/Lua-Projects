@@ -1,0 +1,684 @@
+--[[ For any template shares, please make sure to include a list of the abilities inside the template as follows :
+    1. COMMAND NAME HERE 
+]]--
+--/ Beginner links are provided in-case your unsure what you're doing. / Please refer to template sharing & ability sharing in https://discord.com/invite/g4kFtuS5G6 for already made templates and abilities.
+getgenv().Settings = {
+    ['Made By JoJo#2494'] = {
+        CHECK = {OWNER = "Altaccount92715", STAND = "AlvinColon2"}, --/ Do not use UserId (Always execute script on stand account).
+        FPS = 75, --/ Will control FPS can improve the overall performance on both instances when set to lower.
+        PERFORMANCE = false, --/ If set to true it'll significantly improve your overall FPS if you're struggling with performance.
+        NOCLIP = {SynapseX = false, Offset = -3.05}, --/ Offset will control the height of normal noclip (keep unchanged unless you're using titan with a big character / SynapseX option).
+        FACELESS = true, --/ If you want to remove your face.
+        TRAILS = true, --/ If you want to remove the white trail when charge attacking.
+        LEGS = false, --/ If set to true it'll remove your legs.
+        ANTIFLING = true, --/ If set to true you can't get flinged nor can you fling anyone.
+        TELEPORTMAIN = true, --/ Teleports to the stand user
+        RANGE = 50, --/ Controls the melee reach range (50 is max).
+        TITAN = {ENABLED = false , GODV3 = false}, --/ If enabled you will become a titan stand, if you enable god you need to execute before load for it to work (also can be used with titan disabled).
+        FOLLOWANIM = {true, ID = 3541044388, SPEED = 0.25}, --/ If set to true will play the desired animation when moving (DEFAULT ANIMATION IS SUGGESTED), SPEED will control the speed (Recommended is 0.25).
+    }
+}
+--[[
+Developer notes : 
+- I will not provide template abilities for this current release and probably not for foreseeable future, so it is a MUST that you somewhat read this tutorial / guide regarding this stand creator.
+- You are directly responsible and held accountable for any clips/bans/etc.. You are advised to not use this script on accounts that you care about.
+- If you have any questions or concerns regarding this script, please contact me (https://discord.com/invite/g4kFtuS5G6) at #support.
+]]--
+
+--/ DOCUMENTATION OF THE FUNCTIONS \--
+
+--/ 1. Create('COMMANDNAMEHERE', function() --/ This will create an chat command / replace COMMANDNAME inside the brackets with your desired command name.
+--/ 2. CreateAction('LOOPNAMEHERE', function() --/ This will create an action this should be placed before (1).
+--/ 3. CreateTargetAbility("COMMANDNAMEHERE", function() --/ This will use an command on a target you choose / eg..(Attack! Bacon)
+--/ 4. CreateLoop("LOOPNAMEHERE", function() --/  This will begin looping the arguments specified until stopped (5).
+--/ 5. StopLoop("LOOPNAMEHERE") --/ This will stop the specified loop (4).
+--/ 6. Stand.Action = "LOOPNAMEHERE" --/ This will begin the specified loop/action that you have created (Refer to 2). Stand.Action = "" will essentially stop the action.
+--/ 7. Play(ID, true) --/ This will begin playing the specified audio in the first argument, The second argument true/false + If the second argument is set to false it'll begin looping the audio.
+--/ 8. Stop() --/ This will stop any audios from playing.
+--/ 9. AnimPlay(ID,SPEED) --/ This will begin playing the specified animation (ONLY DH / ROBLOX ANIMATIONS), SPEED will control the animationspeed (Default is 1).
+--/ 10. AnimStop(ID,SPEED) --/ This will stop playing the specified animation, SPEED will control the stopping speed (Default is 1).
+--/ 11. Chat("TEXTGOESHERE") --/ Will chat the specified text in the first argument (stand cry / eg.. following you master).
+--/ 12. Buy.Item() --/ Will buy the specified melee (make sure you have enough cash). eg.. Buy.Knife(), Buy.Bat(), Buy.StopSign(), Buy.Shovel(), Buy.Pencil(), Buy.Nunchucks(), Buy.SledgeHammer(), Buy.Grenade(), Buy.Flashbang(), Buy.Boxing(), Buy.Default().
+--/ 13. Hit(true) --/ If the first argument is set to true it'll do a charge attack + If the first argument is set to false it'll do a quick punch.
+--/ 14. Crew(true,ID) --/ If the first argument is set true it'll join the crew specified(ID) + If the first argument is set to false it'll leave any current crew.
+--/ 15. DropMoney(Amount) --/ This will drop the amount of money specified.
+--/ 16. GetNearest() --/ This will get the nearest enemy player.
+--/ 17. Equip(Tool) --/ This will equip the specific tool eg.. "Combat", "Wallet", [Knife], [Bat], [StopSign], [Shovel], [Pencil], [Nunchucks], [SledgeHammer], [Grenade], [Flashbang] --/ In-case your item is not on this list use darkdex.
+--/ 18. Unequip() --/ This will unequip any currently equipped tools.
+
+--[[ -- IGNORE THIS LINE & REMOVE CONTENT INSIDE THE BRACKETS IF YOU KNOW WHAT YOU'RE DOING.
+
+--/ DOCUMENTATION OF EXAMPLES \--  
+
+--/ 1. This will print the username of the target nearest to the owner.
+Create("test", function()  --/ This will create an command (1). / Replace "test" inside the brackets with your desired command name.
+    local Target = GetNearest() --/ Have an local Target = GetNearest() 
+    print(Target.Name) --/ This will print the nearest player relative to you.
+end) --/ Always remember end) on every command.
+
+--/ 2. This will create an summon action / we will detail in this part what we during while it's summoned.
+CreateAction("Summoned", function() --/ It's good practise to name the action in relation to what it is doing.
+    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(1,1.85,2.5) --/ This is the position of your stand relative to the owner. (xyz + edit the numbers) 
+end) --/ Always remember end)
+
+--/ 2,5. This is a chat command same as in (1), we will use this to trigger Summoned. (2)
+Create("Summon!", function()
+    Stand.Action = "Summoned" --/ This is where we choose the action, we have made "Summoned" so we'll pick that.
+end)
+
+--/ 3. This is a command to stop the action. (2)
+Create("Desummon!", function()
+    Stand.Action = "" --/ We leave it as blank to stop the action. / You should not make a action with a blank name.
+end)
+
+--/ 4. This will make the stand teleport the target.
+CreateTargetAbility("Goto!", function() 
+    Stand.Action = ""  -- We will stop any current actions from interfering with this command.
+    local Target = Stand.Target
+    STAND.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+end)
+
+--/ 5. This will make the stand constantly attack around the player, Remember to always create the action before command (Refer to 2).
+CreateAction("Aura", function() 
+    local RANDOM = math.random(-10,10)
+    STAND.Character.HumanoidRootPart.CFrame = CFrame.new(OWNER.Character.UpperTorso.Position.X + RANDOM, StandUser.Character.UpperTorso.Position.Y + RANDOM, OWNER.Character.UpperTorso.Position.Z + RANDOM)
+    Hit(false)
+end)  
+
+--/ 5.5. Same as in (2.5).
+Create("/e aura", function()
+    Stand.Action = "Aura"
+end)
+
+--/ 6. This will purchase an item utilizing the buy function.
+Create("Knife!", function()
+    Buy.Knife() -- Refer to (10)
+end)
+
+]] -- IGNORE THIS LINE & REMOVE CONTENT INSIDE THE BRACKETS IF YOU KNOW WHAT YOU'RE DOING.
+
+--/ STAND NAME & ABILITY IDEAS : \--
+-- https://jojowiki.com/List_of_Stands
+
+--/ STAND OUTFIT IDEAS : \--
+-- https://www.roblox.com/games/9714571746/JoJos-Bizarre-Collection 
+
+--/ JOJO SOUND EFFECTS : \--
+-- https://www.roblox.com/develop/library?CatalogContext=2&Subcategory=16&CreatorName=jojoaudio&SortAggregation=5&LegendExpanded=true&Category=9
+-- https://www.roblox.com/develop/library?CatalogContext=2&Subcategory=16&CreatorName=Tsuagon&SortAggregation=5&LegendExpanded=true&Category=9
+
+--/ USEFUL SOURCES FOR BEGINNERS \--
+-- https://developer.roblox.com/en-us/articles/Understanding-CFrame
+-- https://developer.roblox.com/en-us/learn-roblox/coding-scripts
+-- https://scriptinghelpers.org/
+-- https://youtube.com/playlist?list=PLw1uWqQBDcgjKqFjPNgtVtBNx3xTGz-l7
+--/----------------------------------------------------------------------------------------------\--
+loadstring(game:HttpGet("https://raw.githubusercontent.com/geschrumpfter/Lua-Projects/main/STAND-FRAMEWORK-v.1.0.5"))()
+--/---------------------------------------------------------------------------------------------\--/ CreateAction goes below this :
+
+--/---------------------------------------------------------------------------------------------\--/ Create & CreateTargetAbility & CreateLoop goes below this :
+CreateAction("Summoned", function() 
+    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(0.5,1.85,2.5)
+	stop = true
+end)
+
+CreateAction("S", function() 
+    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(-2,4,3)
+end)
+
+CreateAction("SR", function() 
+    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(2,4,3)
+end)
+
+    CreateAction("grounded", function() 
+    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(-10,-10,-10)
+end)
+
+    CreateAction("poof", function() 
+    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(-10,-10,-10)
+    Hit(true)
+end)
+
+    CreateAction("Aura", function() 
+    local RANDOM = math.random(-10,10)
+    STAND.Character.HumanoidRootPart.CFrame = CFrame.new(OWNER.Character.UpperTorso.Position.X + RANDOM, OWNER.Character.UpperTorso.Position.Y + RANDOM, OWNER.Character.UpperTorso.Position.Z + RANDOM)
+    Hit(false)
+end)    
+--/---------------------------------------------------------------------------------------------\--/ Create & CreateTargetAbility goes below this :
+Create("test", function() 
+local Target = GetNearest()
+print(Target.Name) 
+end)
+
+Create("left!", function()
+	Stand.Action = "S"
+end)
+
+Create("right!", function()
+	Stand.Action = "SR"
+end)
+
+Create("GOLDEN EXPIERNCE", function()
+Chat("I'm here, Master") --change thea text to whatever u want
+Stand.Action = "Summoned"
+end)
+
+Create("yare yare daze..", function()
+end)
+
+Create("ZA WARUDO!", function()
+end)
+
+Create("GROUND!", function()
+Chat("bye") --change thea text to whatever u want
+Stand.Action = "poof"
+end)
+
+Create("/e sh", function()
+	Chat("I'm leaving, Master")
+	wait(1.3)
+    Stand.Action = ""
+    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(0,1.55,2.5)
+    wait(0.1)
+    STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(0,100000,0)
+end)
+
+Create("Grenade!", function()
+	Buy.Grenade()
+end)
+
+Create("/e aura", function()
+Stand.Action = "Aura"
+end)
+
+CreateAction("aura12", function() 
+Target = GetNearest()
+Range = 230 -- EDIT THIS TO YOUR DESIRED RANGE
+local x = math.random(-5,5)
+local b = (OWNER.Character.UpperTorso.Position - Target.Character.UpperTorso.Position).Magnitude
+    if Target and Target.Character and Target.Character:FindFirstChild("UpperTorso") and b < Range and Target.Character:FindFirstChild("BodyEffects") and Target.Character.BodyEffects:FindFirstChild("Defense") and Target.Character.BodyEffects:FindFirstChild("K.O") and Target.Character.BodyEffects.Attacking.Value == false and Target.Character.BodyEffects["K.O"].Value == false then
+        STAND.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X + x, Target.Character.UpperTorso.Position.Y + x, Target.Character.UpperTorso.Position.Z + x)
+        Hit(true) -- if true will charge
+    else
+        STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(1,1.85,2.5)
+    end
+end)  
+
+
+Create("attack heavy!", function()  -- u can change the cmd name
+    Stand.Action = "aura12"
+end)
+
+
+
+CreateTargetAbility("Goto!", function() 
+    local Target = Stand.Target
+    STAND.Character.HumanoidRootPart.CFrame = Target.Character.HumanoidRootPart.CFrame
+end)
+
+Create("Knife!", function()
+Buy.Knife()
+end)
+
+function playanimtion()
+				if stop then
+					
+				else
+				
+                AnimPlay(2788311138,4)
+				wait(0.08)
+				AnimPlay(2788309317,4)
+				wait(0.08)
+			end
+end
+
+CreateAction("Barrage123", function() -- BARRAGE V2? MAYBE WORKS MAYBE DOESNT LMK Ora! to use
+    if STAND.Character.HumanoidRootPart then
+        if OWNER.Character.HumanoidRootPart then
+            STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(0,0.85,-4.85)
+            if STAND.Character:FindFirstChild("Combat") then
+               
+                Hit(false)
+                STAND.Backpack:FindFirstChild("Combat").Parent = STAND
+                STAND.Character:FindFirstChild("Combat"):Activate()
+                STAND.Character:FindFirstChild("Combat"):Deactivate()
+            end
+        end
+    end
+end)
+
+
+Create("Barrage!", function()
+	stop = false
+               -- AnimPlay(2788309317,1)
+              --  AnimStop(2788311138,1)
+              --  AnimStop(2788309317,1)
+    Stand.Action = "Barrage123"
+    while wait() do
+    	 playanimtion()
+	end
+end)
+
+--Simple Rejoin
+CreateAction("Rejoin", function()
+    game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+end)
+
+Create("Rejoin!", function()
+    Stand.Action = "Rejoin"
+end)
+--not mine, its da homie @dawn!#8888
+
+Create("Leave!", function() -- should leave when said Leave!
+game:Shutdown()
+end)
+
+--NEW BRING REVAMPED BY ME AND THE HOMIE JOJO
+CreateTargetAbility("Bring!", function()
+	Chat("YOU CAN COME WITH ME") 
+    local Target = Stand.Target
+    stop = false
+              
+    if Target then
+    	playanimtion()
+    	STAND.Character.HumanoidRootPart.CFrame = CFrame.new(-10,-10,-10)
+       Hit(false)
+       wait(0.7)
+       Stand.Action = "" 
+       repeat wait()
+        
+        if Target.Character.BodyEffects["K.O"].Value == false then
+            Hit(false)
+            STAND.Character.HumanoidRootPart.CFrame = Target.Character.UpperTorso.CFrame
+        elseif Target.Character.BodyEffects["K.O"].Value == true then 
+            wait(1.5)
+            STAND.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X , Target.Character.UpperTorso.Position.Y +0.5, Target.Character.UpperTorso.Position.Z )
+            wait(.5)
+            stop = true
+            if STAND.Character.BodyEffects["Grabbed"].Value == nil then
+                wait(1)
+                game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+            end
+        end
+        until Stand.Action == "Summoned" or Target == nil or not Target.Character.BodyEffects:FindFirstChild("K.O") or not Target.Character.BodyEffects:FindFirstChild("Defense") or STAND.Character.BodyEffects["Grabbed"].Value ~= nil 
+        Stand.Action = "Summoned"
+	end
+    end)
+    
+    CreateAction("cash drop", function()
+DropMoney(10000)--change this to how much cash u wanna drop
+end)
+
+Create("drop cash", function()
+Stand.Action = "cash drop"
+end)
+
+Create("ORA!", function()--this is they key to what the stand will say
+Chat("ORA! ORA! ORA! ORA! ORA!")--this is what u want it to say
+end)
+
+-- Auto kill made by me :D
+CreateTargetAbility("Kill!", function()
+	Chat("I WILL END YOU") 
+    local Target = Stand.Target
+    if Target then
+       Hit(true)
+       wait(0.7)
+       Stand.Action = "" 
+       repeat wait()
+        if Target.Character.BodyEffects["K.O"].Value == false then
+            Hit(true)
+            STAND.Character.HumanoidRootPart.CFrame = Target.Character.UpperTorso.CFrame
+        elseif Target.Character.BodyEffects["K.O"].Value == true then 
+            wait(0.7)
+            STAND.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X , Target.Character.UpperTorso.Position.Y +0.5, Target.Character.UpperTorso.Position.Z )
+                wait(1)
+                game.ReplicatedStorage.MainEvent:FireServer("Stomp")
+            end
+        until Stand.Action == "Summoned" or Target == nil or not Target.Character.BodyEffects:FindFirstChild("K.O") or not Target.Character.BodyEffects:FindFirstChild("Defense") 
+        Stand.Action = "Summoned"
+        wait(1)
+        game.ReplicatedStorage.MainEvent:FireServer("Stomp")
+        end
+end)
+
+----Save function work in process
+CreateAction("Save", function()
+	Chat("OWNERRR")
+       Stand.Action = "" 
+       repeat wait()
+        if OWNER.Character.BodyEffects["K.O"].Value == false then
+            STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.UpperTorso.CFrame
+        elseif OWNER.Character.BodyEffects["K.O"].Value == true then 
+            wait(0.5)
+            STAND.Character.HumanoidRootPart.CFrame = CFrame.new(OWNER.Character.UpperTorso.Position.X , OWNER.Character.UpperTorso.Position.Y +0.5, OWNER.Character.UpperTorso.Position.Z )
+            wait(0.5)
+            if STAND.Character.BodyEffects["Grabbed"].Value == nil then
+                wait(0.9)
+                game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+            end
+        end
+        until Stand.Action == "Summoned" or Target == nil or not Target.Character.BodyEffects:FindFirstChild("K.O") or not Target.Character.BodyEffects:FindFirstChild("Defense") or STAND.Character.BodyEffects["Grabbed"].Value ~= nil 
+        STAND.Character.HumanoidRootPart.CFrame = CFrame.new(-205.789703, 160.413025, 1.48631835)
+        wait(30000)
+        Stand.Action = "Summoned"
+        end)
+
+
+Create("Save no drop!", function ()
+    Stand.Action = "Save"
+end)
+
+CreateAction("Mimic", function() 
+    local Block = OWNER.Character.BodyEffects:FindFirstChild('Block')
+    if OWNER.Character.BodyEffects.Attacking.Value == true then
+        STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-6)
+        if STAND.Character:FindFirstChild('Combat') then
+            STAND.Character:FindFirstChild('Combat'):Activate()
+        else
+            STAND.Backpack:FindFirstChild('Combat').Parent = STAND.Character
+        end
+    elseif Block then
+        STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-6)
+        if not STAND.Character.BodyEffects:FindFirstChild('Block') then
+            game:GetService("ReplicatedStorage").MainEvent:FireServer("Block", true)
+        end
+    else
+        if STAND.Character.BodyEffects:FindFirstChild('Block') then
+            STAND.Character.BodyEffects:FindFirstChild('Block'):Destroy()
+        end
+        STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame * CFrame.new(1,1.85,2.5)
+    end
+end)
+
+Create("Mimic heavy!", function() 
+    Stand.Action = "Mimic"
+end)
+
+Create("/e f", function()
+game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack["Combat"])
+end)
+
+    CreateTargetAbility("Void!", function()
+	Chat("UR GOING TO A SECRET PLACE") 
+        local Target = Stand.Target
+        if Target then
+           Hit(true)
+           wait(0.7)
+           Stand.Action = "" 
+           repeat wait()
+            if Target.Character.BodyEffects["K.O"].Value == false then
+                Hit(true)
+                STAND.Character.HumanoidRootPart.CFrame = Target.Character.UpperTorso.CFrame
+            elseif Target.Character.BodyEffects["K.O"].Value == true then 
+                wait(1.5)
+                STAND.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X , Target.Character.UpperTorso.Position.Y +0.5, Target.Character.UpperTorso.Position.Z )
+                wait(.5)
+                if STAND.Character.BodyEffects["Grabbed"].Value == nil then
+                    wait(1)
+                    game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+                end
+            end
+            until Stand.Action == "Summoned" or Target == nil or not Target.Character.BodyEffects:FindFirstChild("K.O") or not Target.Character.BodyEffects:FindFirstChild("Defense") or STAND.Character.BodyEffects["Grabbed"].Value ~= nil 
+            STAND.Character.HumanoidRootPart.CFrame = CFrame.new(0,-100,0)
+            wait(1)
+            game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+            wait(0.5)
+            Stand.Action = "Summoned"
+            end
+    end)
+    
+        CreateTargetAbility("jail!", function()
+	Chat("YOU CRIMINAL") 
+        local Target = Stand.Target
+        if Target then
+           Hit(true)
+           wait(0.7)
+           Stand.Action = "" 
+           repeat wait()
+            if Target.Character.BodyEffects["K.O"].Value == false then
+                Hit(true)
+                STAND.Character.HumanoidRootPart.CFrame = Target.Character.UpperTorso.CFrame
+            elseif Target.Character.BodyEffects["K.O"].Value == true then 
+                wait(1.5)
+                STAND.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X , Target.Character.UpperTorso.Position.Y +0.5, Target.Character.UpperTorso.Position.Z )
+                wait(.5)
+                if STAND.Character.BodyEffects["Grabbed"].Value == nil then
+                    wait(1)
+                    game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+                end
+            end
+            until Stand.Action == "Summoned" or Target == nil or not Target.Character.BodyEffects:FindFirstChild("K.O") or not Target.Character.BodyEffects:FindFirstChild("Defense") or STAND.Character.BodyEffects["Grabbed"].Value ~= nil 
+            STAND.Character.HumanoidRootPart.CFrame = CFrame.new(-294.9903869628906, 22.215801239013672, -67.0307846069336)
+            wait(1)
+            game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+            wait(0.5)
+            Stand.Action = "Summoned"
+            end
+    end)
+               CreateTargetAbility("alien!", function()
+	Chat("farewell") 
+        local Target = Stand.Target
+        if Target then
+           Hit(true)
+           wait(0.7)
+           Stand.Action = "" 
+           repeat wait()
+            if Target.Character.BodyEffects["K.O"].Value == false then
+                Hit(true)
+                STAND.Character.HumanoidRootPart.CFrame = Target.Character.UpperTorso.CFrame
+            elseif Target.Character.BodyEffects["K.O"].Value == true then 
+                wait(1.5)
+                STAND.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X , Target.Character.UpperTorso.Position.Y +0.5, Target.Character.UpperTorso.Position.Z )
+                wait(.5)
+                if STAND.Character.BodyEffects["Grabbed"].Value == nil then
+                    wait(1)
+                    game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+                end
+            end
+            until Stand.Action == "Summoned" or Target == nil or not Target.Character.BodyEffects:FindFirstChild("K.O") or not Target.Character.BodyEffects:FindFirstChild("Defense") or STAND.Character.BodyEffects["Grabbed"].Value ~= nil 
+            STAND.Character.HumanoidRootPart.CFrame = CFrame.new(72.05940246582031, 139.41586303710938, -688.4312133789062)
+            wait(1)
+            game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+            wait(0.5)
+            Stand.Action = "Summoned"
+            end
+    end)
+    
+CreateAction("Front Stab12", function()
+    if STAND.Character.HumanoidRootPart then
+        if OWNER.Character.HumanoidRootPart then
+            Hit(true)
+            wait(1)
+            STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame * CFrame.new(0, 2, -35)
+            wait(1.6)
+            Stand.Action = "Summoned"
+        end
+    end
+end)
+
+Create("Ora!", function()
+    Stand.Action = "Front Stab12"
+end)
+
+CreateAction("Mimic1", function() 
+    local Block = OWNER.Character.BodyEffects:FindFirstChild('Block')
+    if OWNER.Character.BodyEffects.Attacking.Value == true then
+        STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-6)
+        if STAND.Character:FindFirstChild('Combat') then
+            STAND.Character:FindFirstChild('Combat'):Activate()
+wait()
+STAND.Character:FindFirstChild('Combat'):Deactivate()
+        else
+            STAND.Backpack:FindFirstChild('Combat').Parent = STAND.Character
+        end
+    elseif Block then
+        STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,-6)
+        if not STAND.Character.BodyEffects:FindFirstChild('Block') then
+            game:GetService("ReplicatedStorage").MainEvent:FireServer("Block", true)
+        end
+    else
+        if STAND.Character.BodyEffects:FindFirstChild('Block') then
+            STAND.Character.BodyEffects:FindFirstChild('Block'):Destroy()
+        end
+        STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame * CFrame.new(1,1.85,2.5)
+    end
+end)
+
+Create("light!", function() 
+    Stand.Action = "Mimic1"
+end)
+
+Create("Refresh!", function() -- TO RESPAWN YOUR STAND
+for i,v in pairs(STAND.Character:GetChildren()) do
+if v:IsA("BasePart") then v:Destroy() end end
+end)
+
+CreateAction("a1ur2a12", function() 
+Target = GetNearest()
+Range = 230 -- EDIT THIS TO YOUR DESIRED RANGE
+local x = math.random(-5,5)
+local b = (OWNER.Character.UpperTorso.Position - Target.Character.UpperTorso.Position).Magnitude
+    if Target and Target.Character and Target.Character:FindFirstChild("UpperTorso") and b < Range and Target.Character:FindFirstChild("BodyEffects") and Target.Character.BodyEffects:FindFirstChild("Defense") and Target.Character.BodyEffects:FindFirstChild("K.O") and Target.Character.BodyEffects.Attacking.Value == false and Target.Character.BodyEffects["K.O"].Value == false then
+        STAND.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X + x, Target.Character.UpperTorso.Position.Y + x, Target.Character.UpperTorso.Position.Z + x)
+        Hit(false) -- if true will charge
+    else
+        STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(1,1.85,2.5)
+    end
+end)  
+
+
+Create("attack light!", function()  -- u can change the cmd name
+    Stand.Action = "a1ur2a12"
+end)
+
+Create("cmds!", function()
+	Chat("void! refresh! attack light! attack heavy! aura! mimic light! mimic heavy! jail! train! alien!")
+	Stand.Action = "Summoned"
+end)
+
+Create("drop!", function()
+	game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+Stand.Action = "Summoned"
+end)
+
+                   CreateTargetAbility("train!", function() -- this brings the target to the train and chats good game
+    Chat("good game") 
+        local Target = Stand.Target
+        if Target then
+           Hit(true)
+           wait(0.7)
+           Stand.Action = "" 
+           repeat wait()
+            if Target.Character.BodyEffects["K.O"].Value == false then
+                Hit(true)
+                STAND.Character.HumanoidRootPart.CFrame = Target.Character.UpperTorso.CFrame
+            elseif Target.Character.BodyEffects["K.O"].Value == true then 
+                wait(1.5)
+                STAND.Character.HumanoidRootPart.CFrame = CFrame.new(Target.Character.UpperTorso.Position.X , Target.Character.UpperTorso.Position.Y +0.5, Target.Character.UpperTorso.Position.Z )
+                wait(.5)
+                if STAND.Character.BodyEffects["Grabbed"].Value == nil then
+                    wait(1)
+                    game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+                end
+            end
+            until Stand.Action == "Summoned" or Target == nil or not Target.Character.BodyEffects:FindFirstChild("K.O") or not Target.Character.BodyEffects:FindFirstChild("Defense") or STAND.Character.BodyEffects["Grabbed"].Value ~= nil 
+            STAND.Character.HumanoidRootPart.CFrame = CFrame.new(672.24267578125, 48.41585922241211, -48.183170318603516)
+            wait(1)
+            game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+            wait(0.5)
+            Stand.Action = "Summoned"
+            end
+    end)
+    
+    Create("cmds 2!", function()
+	Chat("light! mimic heavy! jail! train! alien!")
+	Stand.Action = "Summoned"
+end)
+
+CreateTargetAbility("Fling!", function()
+    local Target = Stand.Target
+    if Target then
+    Stand.Action = ""
+    repeat wait()
+     if Target.Character.BodyEffects["K.O"].Value == false then
+    STAND.Character.HumanoidRootPart.CFrame = Target.Character.LowerTorso.CFrame
+    wait(0.2)
+    local bambam = Instance.new("BodyThrust")
+    bambam.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+    bambam.Force = Vector3.new(500,0,500)
+    bambam.Location = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+    wait(7)
+    game.Players.LocalPlayer.Charcter.Head:Destroy()
+    end
+    until Stand.Action == "Summoned" 
+    game.Players.LocalPlayer.Charcter.Head:Destroy()
+end
+end)
+
+CreateAction("Fro2nt Stab12", function()
+    if STAND.Character.HumanoidRootPart then
+        if OWNER.Character.HumanoidRootPart then
+            Hit(false)
+            wait(1)
+            Stand.Action = "Summoned"
+        end
+    end
+end)
+
+Create("ZA WARUDO!", function()
+    Stand.Action = "Fro2nt Stab12"
+end)
+
+Create("flash!", function()
+Buy.Flashbang()
+end)
+
+CreateAction("Sa1ve", function()
+	Chat("OWNERRR")
+       Stand.Action = "" 
+       repeat wait()
+        if OWNER.Character.BodyEffects["K.O"].Value == false then
+            STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.UpperTorso.CFrame
+        elseif OWNER.Character.BodyEffects["K.O"].Value == true then 
+            wait(0.5)
+            STAND.Character.HumanoidRootPart.CFrame = CFrame.new(OWNER.Character.UpperTorso.Position.X , OWNER.Character.UpperTorso.Position.Y +0.5, OWNER.Character.UpperTorso.Position.Z )
+            wait(0.5)
+            if STAND.Character.BodyEffects["Grabbed"].Value == nil then
+                wait(0.9)
+                game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+            end
+        end
+        until Stand.Action == "Summoned" or Target == nil or not Target.Character.BodyEffects:FindFirstChild("K.O") or not Target.Character.BodyEffects:FindFirstChild("Defense") or STAND.Character.BodyEffects["Grabbed"].Value ~= nil 
+        STAND.Character.HumanoidRootPart.CFrame = CFrame.new(-205.789703, 160.413025, 1.48631835)
+        wait(1)
+       game:GetService("ReplicatedStorage").MainEvent:FireServer("Grabbing", false)
+        wait(2)
+        Stand.Action = "Summoned"
+        end)
+
+
+Create("Save drop!", function ()
+    Stand.Action = "Sa1ve"
+end)
+
+CreateAction("Stab23", function()
+local t = GetNearest()
+Range = 100 -- EDIT THIS TO YOUR DESIRED RANGE
+local x = math.random(-5,5)
+local b = (OWNER.Character.UpperTorso.Position - t.Character.UpperTorso.Position).Magnitude
+    if t and t.Character and t.Character:FindFirstChild("UpperTorso") and b < Range and t.Character:FindFirstChild("BodyEffects") and t.Character.BodyEffects:FindFirstChild("Defense") and t.Character.BodyEffects:FindFirstChild("K.O") and t.Character.BodyEffects.Attacking.Value == false and t.Character.BodyEffects["K.O"].Value == false then
+        STAND.Character.HumanoidRootPart.CFrame = CFrame.new(t.Character.UpperTorso.Position.X + x, t.Character.UpperTorso.Position.Y - 10, t.Character.UpperTorso.Position.Z + x)
+        Hit(false) -- if true will charge
+    else
+        STAND.Character.HumanoidRootPart.CFrame = OWNER.Character.HumanoidRootPart.CFrame*CFrame.new(1,1.85,2.5)
+    end
+end)
+
+Create("Aura!", function()
+Stand.Action = "Stab23"
+end)
+
+Create("cmds 3!", function()
+	Chat("save no drop! save drop! flash! za warudo!")
+end)
