@@ -159,7 +159,7 @@ function announce(title,text,time)
 end
         
 
-StartCrasher.MouseButton1Click:Connect(function()
+
     if Player.DataFolder.Information:FindFirstChild('Crew') and tonumber(Player.DataFolder.Information.Crew.Value) then
         if Player.DataFolder.Currency.Value >= 80000 then
     
@@ -306,4 +306,3 @@ StartCrasher.MouseButton1Click:Connect(function()
     else
         announce('Please join a DH Crew and try again', '(person button on the bottom left)', 10)
     end
-end)
