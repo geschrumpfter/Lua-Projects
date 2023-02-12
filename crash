@@ -1,23 +1,23 @@
+getgenv().CRASH = 
+setfpscap(20)
 pcall(function()
        game.StarterGui:SetCore("SendNotification", {
-        Title = 'Crash fixed, besure to read';
-        Text = 'READ';
+        Title = 'crash fortnite!';
+        Text = 'fortnite';
         Duration = 20;
        })
   if not game.Players.LocalPlayer:IsInGroup(12052955) then
     coroutine.resume(coroutine.create(function()
        wait(10)
        game.StarterGui:SetCore("SendNotification", {
-        Title = 'you are NOT in the group';
-        Text = 'the crash will still work but our group link was copied to your clipboard thx';
+        Title = 'fortnite';
+        Text = 'fortnite!!!';
         Duration = 20;
        })
-       setclipboard('https://www.roblox.com/groups/12052955/Swag-mod#!/about')
+       setclipboard('https://discord.gg/b2Mpp4Q8GZ')
     end))
   end
 end)
-
--- This file was NOT obfuscated, but beware all this code is very sloppy and unorganized. Nothing in here is rare and most of it is public hense why its open source
 
 if not game:IsLoaded() then game.Loaded:Wait() end
 
@@ -274,10 +274,11 @@ StartCrasher.MouseButton1Click:Connect(function()
                         Count = Count + 1
                     end   
                 end
-                TextLabel.Text = 'You have '.. tostring(Count) .. ' items, \n it will crash at 1550 items'
+                
+                TextLabel.Text = 'You have '.. tostring(Count) .. ' items, \n it will crash at '..getgenv().CRASH..' items'
                 task.wait()
-            until Count >= 1550
-            
+                until Count >= getgenv().CRASH
+                
             wait(1)
             Player.Character.HumanoidRootPart.CFrame = CFrame.new(0,99999999,0)
             wait(3)
@@ -286,8 +287,7 @@ StartCrasher.MouseButton1Click:Connect(function()
                 if v:IsA('Tool') then
                     v.Parent = Player.Character
                 end
-            end
-                
+            end  
             local T = 0
             repeat
                 for i,v in pairs(Player.Backpack:GetChildren()) do
