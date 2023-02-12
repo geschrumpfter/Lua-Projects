@@ -1,4 +1,3 @@
-getgenv().CRASH = 
 setfpscap(FPS)
 pcall(function()
        game.StarterGui:SetCore("SendNotification", {
