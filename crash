@@ -1,5 +1,5 @@
 getgenv().CRASH = 
-setfpscap(20)
+setfpscap(FPS)
 pcall(function()
        game.StarterGui:SetCore("SendNotification", {
         Title = 'crash fortnite!';
