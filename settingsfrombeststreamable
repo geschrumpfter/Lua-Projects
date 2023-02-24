@@ -157,8 +157,8 @@ getgenv().Arceus = {
         ["HoldMode"] = (true), -- // Enables While Only Holding The Key
         
         ["Name"] = {["Enabled"] = true, ["OutLine"] = true, ["Color"] = Color3.fromRGB(255, 255, 255)}, -- // Shows Targets Name
-        ["Box"] = {["Enabled"] = true, ["OutLine"] = true, ["Color"] = Color3.fromRGB(255, 255, 255)}, -- // Shows Box On Target
-        ["HealthBar"] = {["Enabled"] = true, ["OutLine"] = true, ["Color"] = Color3.fromRGB(0, 255, 0)}, -- // Shows An Health Bar On Target
+        ["Box"] = {["Enabled"] = false, ["OutLine"] = false, ["Color"] = Color3.fromRGB(255, 255, 255)}, -- // Shows Box On Target
+        ["HealthBar"] = {["Enabled"] = false, ["OutLine"] = false, ["Color"] = Color3.fromRGB(0, 255, 0)}, -- // Shows An Health Bar On Target
         ["HealthText"] = {["Enabled"] = true, ["OutLine"] = true, ["Color"] = Color3.fromRGB(0, 255, 0)}, -- // Shows An Text How Much Hp Target Have
         ["Distance"] = {["Enabled"] = true, ["OutLine"] = true, ["Color"] = Color3.fromRGB(255, 255, 255)} -- // Shows Targets Distance Between You
     }
