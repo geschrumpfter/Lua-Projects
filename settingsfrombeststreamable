@@ -59,10 +59,10 @@ getgenv().Arceus = {
     GunFOV = {
         ["Enabled"] = (true), -- // Gun Fov / Fov Is Automatically Changed To Specific Gun Equipped
     
-        ["Double-Barrel SG"] = {["Fov"] = 8}, -- // Db
-        ["Revolver"] = {["Fov"] = 6}, -- // Rev
+        ["Double-Barrel SG"] = {["Fov"] = 7}, -- // Db
+        ["Revolver"] = {["Fov"] = 7}, -- // Rev
         ["SMG"] = {["Fov"] = 7}, -- // Smg
-        ["Shotgun"] = {["Fov"] = 9}, -- // Shotgun
+        ["Shotgun"] = {["Fov"] = 7}, -- // Shotgun
         ["Rifle"] = {["Fov"] = 3}, -- // Rifle
         ["TacticalShotgun"] = {["Fov"] = 8}, -- // Tactical
         ["Silencer"] = {["Fov"] = 7}, -- // Smg
@@ -77,19 +77,19 @@ getgenv().Arceus = {
         ["Medium_Activation"] = (42), -- // Its Using Studs
         ["Close_Activation"] = (16), -- // Its Uisng Studs
         
-        ["Double-Barrel SG"] = {["Far"] = 6, ["Med"] = 8, ["Close"] = 10}, -- // Db
-        ["Revolver"] = {["Far"] = 4, ["Med"] = 6, ["Close"] = 8}, -- // Rev
-        ["SMG"] = {["Far"] = 3, ["Med"] = 5, ["Close"] = 7}, -- // Smg
-        ["Shotgun"] = {["Far"] = 6, ["Med"] = 8, ["Close"] = 10}, -- // Shotgun
+        ["Double-Barrel SG"] = {["Far"] = 5, ["Med"] = 7, ["Close"] = 8}, -- // Db
+        ["Revolver"] = {["Far"] = 4, ["Med"] = 7, ["Close"] = 8}, -- // Rev
+        ["SMG"] = {["Far"] = 3, ["Med"] = 5, ["Close"] = 8}, -- // Smg
+        ["Shotgun"] = {["Far"] = 6, ["Med"] = 8, ["Close"] = 8}, -- // Shotgun
         ["Rifle"] = {["Far"] = 2, ["Med"] = 4, ["Close"] = 6}, -- // Rifle
         -- // You Can Add Custom Weapons If You Want To :p
     },
     SilentFOV = {
-        ["Visible"] = (false), -- // If The Circle Is Showing Or Not
+        ["Visible"] = (true), -- // If The Circle Is Showing Or Not
         ["Filled"] = (false), -- // If The Circle Is Filled
         ["Transparency"] = (1), -- // The Circle Transparency
         ["Color"] = (Color3.fromRGB(87, 237, 255)), -- // Circle Transparency
-        ["Radius"] = (12) -- // How Big The Circle Is
+        ["Radius"] = (10) -- // How Big The Circle Is
     },
 
     AimAssist = {
@@ -116,8 +116,8 @@ getgenv().Arceus = {
         
         ["WallCheck"] = (true), -- // Checks If Theres A Wall
         
-        ["Smoothness_X"] = (0.018), -- // How Smooth The Aim Assist Is On X
-        ["Smoothness_Y"] = (0.018) -- // How Smooth The Aim Assist Is On Y
+        ["Smoothness_X"] = (0.048), -- // How Smooth The Aim Assist Is On X
+        ["Smoothness_Y"] = (0.036) -- // How Smooth The Aim Assist Is On Y
     },
     AimAssistFOV = {
         ["Visible"] = (false), -- // If The Circle Is Showing Or Not
@@ -144,7 +144,7 @@ getgenv().Arceus = {
         ["FriendCheck"] = (false), -- // Checks If Target Is Your Friend
         ["TeamCheck"] = (false), -- // Checks If Player Is In the Same Team
         
-        ["UseLay"] = (false), -- // Enable / Disable Lay Keybind
+        ["UseLay"] = (true), -- // Enable / Disable Lay Keybind
         ["LayKeybind"] = ("C"), -- // KeyBind To Lay
         
         ["SendNotification"] = (true) -- // Sends Notification When you Enabled / Disabled Stuff
