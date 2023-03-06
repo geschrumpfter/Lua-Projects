@@ -59,12 +59,12 @@ getgenv().Arceus = {
     GunFOV = {
         ["Enabled"] = (true), -- // Gun Fov / Fov Is Automatically Changed To Specific Gun Equipped
     
-        ["Double-Barrel SG"] = {["Fov"] = 7}, -- // Db
-        ["Revolver"] = {["Fov"] = 7}, -- // Rev
-        ["SMG"] = {["Fov"] = 7}, -- // Smg
-        ["Shotgun"] = {["Fov"] = 7}, -- // Shotgun
-        ["Rifle"] = {["Fov"] = 3}, -- // Rifle
-        ["TacticalShotgun"] = {["Fov"] = 8}, -- // Tactical
+        ["Double-Barrel SG"] = {["Fov"] = 9}, -- // Db
+        ["Revolver"] = {["Fov"] = 5}, -- // Rev
+        ["SMG"] = {["Fov"] = 5}, -- // Smg
+        ["Shotgun"] = {["Fov"] = 9}, -- // Shotgun
+        ["Rifle"] = {["Fov"] = 4}, -- // Rifle
+        ["TacticalShotgun"] = {["Fov"] = 9}, -- // Tactical
         ["Silencer"] = {["Fov"] = 7}, -- // Smg
         ["AK47"] = {["Fov"] = 4}, -- // Ak47
         ["AR"] = {["Fov"] = 5} -- // Rifle
@@ -77,10 +77,10 @@ getgenv().Arceus = {
         ["Medium_Activation"] = (42), -- // Its Using Studs
         ["Close_Activation"] = (16), -- // Its Uisng Studs
         
-        ["Double-Barrel SG"] = {["Far"] = 5, ["Med"] = 7, ["Close"] = 8}, -- // Db
-        ["Revolver"] = {["Far"] = 4, ["Med"] = 7, ["Close"] = 8}, -- // Rev
-        ["SMG"] = {["Far"] = 3, ["Med"] = 5, ["Close"] = 8}, -- // Smg
-        ["Shotgun"] = {["Far"] = 6, ["Med"] = 8, ["Close"] = 8}, -- // Shotgun
+        ["Double-Barrel SG"] = {["Far"] = 5, ["Med"] = 7, ["Close"] = 9}, -- // Db
+        ["Revolver"] = {["Far"] = 3, ["Med"] = 5, ["Close"] = 7}, -- // Rev
+        ["SMG"] = {["Far"] = 3, ["Med"] = 5, ["Close"] = 7}, -- // Smg
+        ["Shotgun"] = {["Far"] = 6, ["Med"] = 8, ["Close"] = 9}, -- // Shotgun
         ["Rifle"] = {["Far"] = 2, ["Med"] = 4, ["Close"] = 6}, -- // Rifle
         -- // You Can Add Custom Weapons If You Want To :p
     },
