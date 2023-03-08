@@ -431,7 +431,7 @@ function Aiming.GetClosestPlayerToCursor()
         if getgenv().Resolver.UnderGround == true and Aiming.Selected ~= nil and (Aiming.Selected.Character) then
                 pcall(
                     function()
-                        local TargetVelv2 = Aiming.Character[getgenv().Resolver.ResolverPart]
+                        local TargetVelv2 = Aiming.Selected.Character[getgenv().Resolver.ResolverPart]
                         TargetVelv2.Velocity = Vec3(TargetVelv2.Velocity.X, 0, TargetVelv2.Velocity.Z)
                         TargetVelv2.AssemblyLinearVelocity = Vec3(TargetVelv2.Velocity.X, 0, TargetVelv2.Velocity.Z)
                     end
@@ -439,7 +439,7 @@ function Aiming.GetClosestPlayerToCursor()
             end
             if
                 getgenv().Resolver.Desync == true and Aiming.Selected ~= nil and (Aiming.Selected.Character) and
-                    Aiming.Selected:WaitForChild("HumanoidRootPart").Velocity.magnitude >
+                    Aiming.Selected.Character:WaitForChild("HumanoidRootPart").Velocity.magnitude >
                         getgenv().Resolver.Detection
              then
                 pcall(
