@@ -430,7 +430,7 @@ function Aiming.GetClosestPlayerToCursor()
         if getgenv().Resolver.UnderGround == true then
                 pcall(
                     function()
-                        local TargetVelv2 = Aiming.Selected[getgenv().Aiming.TargetPart]
+                        local TargetVelv2 = Aiming.Character[getgenv().Aiming.TargetPart]
                         TargetVelv2.Velocity = Vec3(TargetVelv2.Velocity.X, 0, TargetVelv2.Velocity.Z)
                         TargetVelv2.AssemblyLinearVelocity = Vec3(TargetVelv2.Velocity.X, 0, TargetVelv2.Velocity.Z)
                     end
@@ -443,7 +443,7 @@ function Aiming.GetClosestPlayerToCursor()
              then
                 pcall(
                     function()
-                        local TargetVel = Aiming.Selected[getgenv().Aiming.TargetPart]
+                        local TargetVel = Aiming.Character[getgenv().Aiming.TargetPart]
                         TargetVel.Velocity = Vec3(0, 0, 0)
                         TargetVel.AssemblyLinearVelocity = Vec3(0, 0, 0)
                     end
