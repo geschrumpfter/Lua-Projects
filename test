@@ -444,7 +444,7 @@ function Aiming.GetClosestPlayerToCursor()
              then
                 pcall(
                     function()
-                        local TargetVel = Aiming.Character[getgenv().Resolver.ResolverPart]
+                        local TargetVel = Aiming.Selected.Character[getgenv().Resolver.ResolverPart]
                         TargetVel.Velocity = Vec3(0, 0, 0)
                         TargetVel.AssemblyLinearVelocity = Vec3(0, 0, 0)
                     end
