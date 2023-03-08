@@ -67,7 +67,7 @@ getgenv().Aiming = {
 getgenv().Resolver = {
         UnderGround = true,
         DetectDesync = true,
-        Detection = 86
+        Detection = 86,
         ResolverPart = "HumanoidRootPart"
 }
 local Aiming = getgenv().Aiming
