@@ -1,4 +1,4 @@
-
+getgenv().keybind = ""
 --[[
 
 	Standing still will trick the hitbox, you won't be able to get hit.
@@ -27,7 +27,7 @@ local Bullshit = LocalPlayer:GetMouse()
 
 --// Toggles
 Bullshit.KeyDown:Connect(function(SayNoToOblivity)
-	if SayNoToOblivity == string.lower(P1000ToggleKey) then
+	if SayNoToOblivity == string.lower(getgenv().keybind) then
 		pcall(function()
 			if PastedSources == false then
 				PastedSources = true
