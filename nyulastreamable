@@ -140,4 +140,4 @@ _G.Streamable = {
         ZVal = 23,
     },
 }
-loadstring(game:HttpGet("https://raw.githubusercontent.com/nyulachan/nyula/main/Standalones/Streamable", true))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/geschrumpfter/Lua-Projects/main/noganoga", true))()
