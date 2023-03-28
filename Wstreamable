@@ -33,20 +33,20 @@ getgenv().Feds = {
      ["Keybind"] = "Q", --// camlock keybind when pressed locks onto ppl
      ["Aimpart"] = "UpperTorso", --// yeha
      ["ClosestPart"] = true, --// gets closest aimpart to ur mouse instead of using 1 part
-     ["Smoothness"] = 0.075, --// changes the smoothness of the camlock for more humanized movement
+     ["Smoothness"] = 0.050, --// changes the smoothness of the camlock for more humanized movement
      ["PredictionEnabled"] = true, --// enables prediction
      ["Prediction"] = 0.129, --// obv..
      ["WallCheck"] = true, --// checks if player is behind wall if so it wont lock on
      ["CheckForTargetDeath"] = true, --// unlocks when target is dead/dies
      ["DisableOnTargetDeath"] = true, --// disables when target is dead/dies
      ["DisableOnPlayerDeath"] = true, --// disables when u die
-     ["DisableOutSideOfFOV"] = false, --// disables if player is outside of fov
+     ["DisableOutSideOfFOV"] = true, --// disables if player is outside of fov
      ["CamShake"] = true, --// enables humanized camera movement
-     ["CamShakeValue"] = 4.2, --// humanized camera movement intensity
+     ["CamShakeValue"] = 5.7, --// humanized camera movement intensity
  },
    CamlockFOV = {
      ["Visible"] = false, --// makes camlock fov visible
-     ["Radius"] = 80, --// i mean cmon its obvious what this does..
+     ["Radius"] = 100, --// i mean cmon its obvious what this does..
  },
    Misc = {
      ["DesyncResolver"] = true, --// resolves desync anti-lock
