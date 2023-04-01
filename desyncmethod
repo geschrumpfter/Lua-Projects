@@ -33,10 +33,10 @@ Bullshit.KeyDown:Connect(function(SayNoToOblivity)
 		pcall(function()
 			if PastedSources == false then
 				PastedSources = true
-				print("Enabled P1000")
+				game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Enabled fortnite anti", Text = "fortnite anti", Duration = 1,});
 			elseif PastedSources == true then
 				PastedSources = false
-				print("Disabled P1000")
+				game:GetService("StarterGui"):SetCore("SendNotification", {Title = "Disabled fortnite anti", Text = "fortnite anti", Duration = 1,});
 			end
 		end)
 	end
